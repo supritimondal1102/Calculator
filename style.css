@@ -57,3 +57,10 @@ form input.operator:hover{
     color: #44a5ff;
 
 }
+form input.btn:hover{
+    transform: scale(1.05);
+    transition: 0.5s ease-in-out;
+    box-shadow: 0px 0px 3px #2ffc2f,3px 3px 20px #2ffc2f;
+    
+    color: #2ffc2f;
+}
