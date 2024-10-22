@@ -28,13 +28,19 @@
 form .display{
     display: flex;
     justify-content: flex-end;
-    margin: 20px 0;
+    margin: 10px 0;
+    background-color: #fff;
+    border-radius: 10px;
+    padding-top: 5px;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1),5px 5px 15px rgba(0, 0, 0, 0.2);
+
 }
 form .display input{
     text-align: right;
     flex: 1;
     font-size: 45px;
     box-shadow: none;
+    color: #000;
 }
 form input.equal{
     width: 145px;
@@ -42,5 +48,12 @@ form input.equal{
 
 
 form input.operator{
-    color: #33ffd8;
+    color: #0084ff;
+}
+form input.operator:hover{
+    transform: scale(1.15);
+    transition: 0.5s ease-in-out;
+    box-shadow: 5px 5px 5px #44a5ff,5px 5px 25px #44a5ff;
+    color: #44a5ff;
+
 }
