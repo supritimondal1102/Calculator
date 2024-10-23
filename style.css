@@ -1,66 +1,123 @@
-.container{
-   width: 100%;
-   height: 100vh; 
-   background: #e3f9ff;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('https://source.unsplash.com/1600x900/?abstract,background') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.5s ease;
 }
-.calculator{
-    background: #3a4452;
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    background: rgba(58, 68, 82, 0.8);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
 }
-.calculator form input{
-    border: 0;
-    outline: 0;
+
+.calculator button.theme-toggle {
+    margin-bottom: 15px;
+    background: #44a5ff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.calculator button.theme-toggle:hover {
+    background: #005f99;
+}
+
+.calculator form input {
+    border: none;
+    outline: none;
     width: 60px;
     height: 60px;
     border-radius: 10px;
-    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1),5px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: inset -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
     background: transparent;
     font-size: 20px;
     color: #fff;
     cursor: pointer;
     margin: 10px;
+    transition: all 0.3s ease;
 }
 
-form .display{
+form .display {
     display: flex;
     justify-content: flex-end;
     margin: 10px 0;
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 10px;
-    padding-top: 5px;
-    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1),5px 5px 15px rgba(0, 0, 0, 0.2);
-
+    padding: 15px;
+    box-shadow: inset -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
-form .display input{
+
+form .display input {
     text-align: right;
     flex: 1;
     font-size: 45px;
-    box-shadow: none;
-    color: #000;
-}
-form input.equal{
-    width: 145px;
+    border: none;
+    background: none;
+    color: #333;
 }
 
+form input.equal {
+    width: 130px;
+    background-color: #44a5ff;
+}
 
-form input.operator{
+form input.operator {
     color: #0084ff;
 }
-form input.operator:hover{
-    transform: scale(1.15);
-    transition: 0.5s ease-in-out;
-    box-shadow: 0px 0px 3px #44a5ff,3px 3px 20px #44a5ff;
-    color: #44a5ff;
 
+form input.operator:hover {
+    background: #005f99;
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.5), inset 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
 }
-form input.btn:hover{
-    transform: scale(1.05);
-    transition: 0.5s ease-in-out;
-    box-shadow: 0px 0px 3px #2ffc2f,3px 3px 20px #2ffc2f;
-    
-    color: #2ffc2f;
+
+form input.btn:hover {
+    background: #2ffc2f;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.dark-mode {
+    background: #222;
+    color: #fff;
+}
+
+.dark-mode .calculator {
+    background: rgba(58, 68, 82, 0.9);
+}
+
+.dark-mode form .display {
+    background-color: #444;
+}
+
+.dark-mode form .display input {
+    color: #fff;
+}
+
+.dark-mode form input {
+    color: #fff;
+}
+
+.dark-mode button.theme-toggle {
+    background: #44a5ff;
 }
