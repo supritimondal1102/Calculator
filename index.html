@@ -3,54 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculetor using javascript</title>
+    <title>Calculator with JavaScript</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-    <div class="calculator">
-        <form>
-            <div class="display">
-                <input type="text" name="display">
-            </div>
-            <div>
-                <input type="button" value="AC" onclick="display.value = '' " class="operator">
-                <input type="button" value="DE" onclick="display.value =  display.value.slice
-                (0,-1)" class="operator">
-                <input type="button" value="." onclick="display.value += '.' " class="operator">
-                <input type="button" value="/" onclick="display.value += '/' " class="operator">
-            </div>
-            <div>
-                <input class="btn" type="button" value="7" onclick="display.value += '7' ">
-                <input class="btn" type="button" value="8" onclick="display.value += '8' ">
-                <input class="btn" type="button" value="9" onclick="display.value += '9' ">
-                <input type="button" value="*" onclick="display.value += '*' " class="operator">
-            </div>
-            <div>
-                <input class="btn" type="button" value="4" onclick="display.value += '4' ">
-                <input class="btn" type="button" value="5" onclick="display.value += '5' ">
-                <input class="btn" type="button" value="6" onclick="display.value += '6' ">
-                <input type="button" value="-" onclick="display.value += '-' " class="operator">
-        
-                
-            </div>
-            <div>
-                <input class="btn" type="button" value="1" onclick="display.value += '1' ">
-                <input class="btn" type="button" value="2" onclick="display.value += '2' ">
-                <input class="btn" type="button" value="3" onclick="display.value += '3' ">
-                <input type="button" value="+" onclick="display.value += '+' " class="operator">
-            </div>
-            <div>
-                <input class="btn" type="button" value="00" onclick="display.value += '00' ">
-                <input class="btn" type="button" value="0" onclick="display.value += '0' ">
-                
-                <input type="button" value="=" onclick="display.value = eval(display.value)"
-                class="equal operator">
-                
-            </div>
-        </form>
+    <div class="container">
+        <div class="calculator">
+            <button id="theme-toggle" class="theme-toggle">Toggle Theme</button>
+            <form id="calc-form" onkeydown="return handleKeyboard(event)">
+                <div class="display">
+                    <input type="text" name="display" readonly>
+                </div>
+                <div>
+                    <input type="button" value="AC" onclick="display.value = ''" class="operator">
+                    <input type="button" value="DE" onclick="display.value = display.value.slice(0,-1)" class="operator">
+                    <input type="button" value="." onclick="display.value += '.'" class="operator">
+                    <input type="button" value="/" onclick="display.value += '/'" class="operator">
+                </div>
+                <div>
+                    <input class="btn" type="button" value="7" onclick="display.value += '7'">
+                    <input class="btn" type="button" value="8" onclick="display.value += '8'">
+                    <input class="btn" type="button" value="9" onclick="display.value += '9'">
+                    <input type="button" value="*" onclick="display.value += '*'" class="operator">
+                </div>
+                <div>
+                    <input class="btn" type="button" value="4" onclick="display.value += '4'">
+                    <input class="btn" type="button" value="5" onclick="display.value += '5'">
+                    <input class="btn" type="button" value="6" onclick="display.value += '6'">
+                    <input type="button" value="-" onclick="display.value += '-'" class="operator">
+                </div>
+                <div>
+                    <input class="btn" type="button" value="1" onclick="display.value += '1'">
+                    <input class="btn" type="button" value="2" onclick="display.value += '2'">
+                    <input class="btn" type="button" value="3" onclick="display.value += '3'">
+                    <input type="button" value="+" onclick="display.value += '+'" class="operator">
+                </div>
+                <div>
+                    <input class="btn" type="button" value="00" onclick="display.value += '00'">
+                    <input class="btn" type="button" value="0" onclick="display.value += '0'">
+                    <input type="button" value="=" onclick="calculate()" class="equal operator">
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-    
+
+    <script>
+        function calculate() {
+            const display = document.querySelector('input[name="display"]');
+            display.value = eval(display.value);
+        }
+
+        function handleKeyboard(event) {
+            const display = document.querySelector('input[name="display"]');
+            const key = event.key;
+            if (!isNaN(key) || ["+", "-", "*", "/"].includes(key)) {
+                display.value += key;
+            } else if (key === "Enter") {
+                calculate();
+            } else if (key === "Backspace") {
+                display.value = display.value.slice(0, -1);
+            }
+            return false; // Prevent default actions
+        }
+
+        document.getElementById("theme-toggle").addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
 </body>
 </html>
